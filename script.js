@@ -101,15 +101,25 @@ function scrollRight() {
         left: 300,
         behavior: "smooth"
     });
+
+    checkInfinite();
 }
 
-carousel.addEventListener("scroll", () => {
+/* INFINITE SCROLL REAL */
+function checkInfinite() {
 
-    if (
-        carousel.scrollLeft + carousel.clientWidth >=
-        carousel.scrollWidth - 5
-    ) {
-        carousel.scrollLeft = 0;
-    }
+    const cards = document.querySelectorAll(".card");
 
-});
+    const lastCards = Array.from(cards).slice(0, 4);
+
+    lastCards.forEach(card => {
+
+        const clone = card.cloneNode(true);
+
+        clone.classList.add("fade-in");
+
+        carousel.appendChild(clone);
+
+    });
+
+}

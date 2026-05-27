@@ -580,3 +580,65 @@ body {
     height: 180px;
     object-fit: cover;
 }
+
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    /* HERO */
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    .hero-content button {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+
+    /* LOGO */
+    .logo img {
+        width: 250px;
+        height: 80px;
+    }
+
+    /* CARDS */
+    .card {
+        min-width: 220px;
+    }
+
+    /* COLLAGE 2x2 → 1 columna */
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card {
+        height: 220px;
+    }
+
+    /* TITULOS */
+    h2 {
+        font-size: 28px;
+    }
+
+}

@@ -1,0 +1,582 @@
+body {
+    animation: fadeIn 0.8s ease-in;
+    background-color: #f5f0e6;
+    color: #2b2b2b;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: "TuFuente";
+    margin: 0;
+}
+
+header {
+    align-items: center;
+    background: #F2D5AA;
+    color: #2a543a;
+    display: flex;
+    justify-content: space-between;
+    padding: 18 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav a {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    margin: 0 15px;
+    padding-bottom: 5px;
+    position: relative;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #cba258;
+}
+
+.hero {
+    height: 90vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin: 0 0 20px 0;
+    font-weight: bold;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin: 0 0 30px 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero button {
+    background: rgba(203, 162, 88, 0.7);
+    border: 2px solid #cba258;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    padding: 14px 40px;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    background: rgba(203, 162, 88, 0.9);
+    transform: scale(1.08);
+}
+
+.hero-slider {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+}
+
+.slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slides img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 1s ease;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.slides img.active {
+    opacity: 1;
+}
+
+button {
+    background-color: #8b5e3c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.menu {
+    opacity: 1;
+    padding: 80px 20px;
+    text-align: center;
+    transition: all 0.8s ease;
+}
+
+.menu h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* tarjeta estilo pro */
+.card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.35s ease;
+    max-width: 260px;
+    width: 100%;
+}
+
+.card.hide {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: scale(0.8);
+}
+
+.card.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+}
+
+.card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.card span {
+    background: #1e3932;
+    border-radius: 20px;
+    color: white;
+    display: inline-block;
+    font-size: 0.85rem;
+    margin: 10px 0 15px;
+    padding: 6px 12px;
+}
+
+/* Animación general al cargar */
+body {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav a {
+    color: #2a543a;
+    font-size: 30px;
+    margin: 0 15px;
+    padding-bottom: 5px;
+    position: relative;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* línea animada */
+nav a::after {
+    background: #cba258;
+    bottom: -5px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: 0.3s;
+    width: 0%;
+}
+
+/* hover */
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
+/* activo */
+nav a.active {
+    color: #cba258;
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
+section#nosotros,
+section#contacto {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+section#nosotros h2,
+section#contacto h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+section#contacto {
+    background: #1e3932;
+    color: white;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    background: #e6dccf;
+    border: none;
+    border-radius: 20px;
+    color: #1e3932;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 18px;
+    transition: 0.3s;
+}
+
+.filters button:hover {
+    background: #1e3932;
+    color: white;
+}
+
+.card {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.4s ease;
+}
+
+.logo {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.logo img {
+    border-radius: 50%;
+    height: 80px;
+    object-fit: cover;
+    width: 250px;
+}
+
+@font-face {
+    font-family: "MiFuente";
+    src: url("fonts/MISTRAL.TTF");
+}
+
+body {
+    font-family: "MiFuente", sans-serif;
+}
+
+/* Icono de usuario circular */
+.user-profile {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #cba258;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-profile:hover {
+    transform: scale(1.1);
+    border-color: #1e3932;
+}
+
+.user-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Modal de Autenticación */
+.auth-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-modal.show {
+    display: flex;
+}
+
+.auth-container {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #1e3932;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #999;
+    transition: 0.3s;
+}
+
+.tab-btn.active {
+    color: #1e3932;
+    border-bottom-color: #cba258;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.auth-container h2 {
+    font-size: 1.8rem;
+    margin: 0 0 20px 0;
+    color: #1e3932;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-container input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.auth-container input:focus {
+    outline: none;
+    border-color: #cba258;
+    box-shadow: 0 0 5px rgba(203, 162, 88, 0.3);
+}
+
+.auth-container button[type="submit"] {
+    padding: 12px;
+    background: #1e3932;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.auth-container button[type="submit"]:hover {
+    background: #2a543a;
+}
+
+.auth-container p {
+    text-align: center;
+    margin: 15px 0 0 0;
+    font-size: 0.9rem;
+}
+
+.auth-container a {
+    color: #cba258;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.auth-container a:hover {
+    color: #1e3932;
+}
+
+.categories {
+    padding: 80px 10%;
+}
+
+.categories h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.08);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay h3 {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    min-width: 260px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}

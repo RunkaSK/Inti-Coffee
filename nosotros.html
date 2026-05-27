@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Inticoffee</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo Inticoffee">
+        </div>
+        <nav>
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="menu.html" class="nav-link">Menú</a>
+            <a href="nosotros.html" class="nav-link active">Nosotros</a>
+            <a href="contacto.html" class="nav-link">Contacto</a>
+            <div class="user-profile" onclick="toggleAuthModal()">
+                <img src="https://via.placeholder.com/50/8B5E3C/FFFFFF?text=👤" alt="Perfil">
+            </div>
+        </nav>
+    </header>
+
+    <!-- Modal de Autenticación -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-container">
+            <button class="close-btn" onclick="toggleAuthModal()">×</button>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Iniciar Sesión</button>
+                <button class="tab-btn" onclick="switchTab('register')">Registrarse</button>
+            </div>
+
+            <!-- Tab Login -->
+            <div id="login" class="tab-content active">
+                <h2>Bienvenido</h2>
+                <form>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <button type="submit">Iniciar Sesión</button>
+                </form>
+                <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+            </div>
+
+            <!-- Tab Register -->
+            <div id="register" class="tab-content">
+                <h2>Crear Cuenta</h2>
+                <form>
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" placeholder="Confirmar contraseña" required>
+                    <button type="submit">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section id="nosotros">
+        <h2>Nosotros</h2>
+        <p>Somos una cafetería apasionada por el buen café y la experiencia del cliente.</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

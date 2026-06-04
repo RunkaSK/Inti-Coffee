@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/conexion.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,6 +16,7 @@
 </head>
 
 <body>
+    <?php mostrarMensaje(); ?>
 
     <!-- HEADER -->
     <header>
@@ -25,19 +27,19 @@
 
         <nav>
 
-            <a href="index.html" class="nav-link">
+            <a href="index.php" class="nav-link">
                 Inicio
             </a>
 
-            <a href="menu.html" class="nav-link">
+            <a href="menu.php" class="nav-link">
                 Menú
             </a>
 
-            <a href="nosotros.html" class="nav-link">
+            <a href="nosotros.php" class="nav-link">
                 Nosotros
             </a>
 
-            <a href="contacto.html"
+            <a href="contacto.php"
                class="nav-link active">
                 Contacto
             </a>
@@ -90,21 +92,7 @@
 
                 <h2>Bienvenido</h2>
 
-                <form>
-
-                    <input type="email"
-                           placeholder="Correo electrónico"
-                           required>
-
-                    <input type="password"
-                           placeholder="Contraseña"
-                           required>
-
-                    <button type="submit">
-                        Iniciar Sesión
-                    </button>
-
-                </form>
+                <form action="login.php" method="POST"><input type="email" name="correo" placeholder="Correo electrónico" required><input type="password" name="password" placeholder="Contraseña" required><button type="submit">Iniciar Sesión</button></form>
 
                 <p>
                     <a href="#">
@@ -120,29 +108,7 @@
 
                 <h2>Crear Cuenta</h2>
 
-                <form>
-
-                    <input type="text"
-                           placeholder="Nombre completo"
-                           required>
-
-                    <input type="email"
-                           placeholder="Correo electrónico"
-                           required>
-
-                    <input type="password"
-                           placeholder="Contraseña"
-                           required>
-
-                    <input type="password"
-                           placeholder="Confirmar contraseña"
-                           required>
-
-                    <button type="submit">
-                        Registrarse
-                    </button>
-
-                </form>
+                <form action="registrar.php" method="POST"><input type="text" name="nombre_completo" placeholder="Nombre completo" required><input type="email" name="correo" placeholder="Correo electrónico" required><input type="password" name="password" placeholder="Contraseña" required><input type="password" name="confirmar_password" placeholder="Confirmar contraseña" required><button type="submit">Registrarse</button></form>
 
             </div>
 
@@ -177,26 +143,7 @@
             <!-- FORMULARIO -->
             <div class="contact-form">
 
-                <form>
-
-                    <input type="text"
-                           placeholder="Tu nombre"
-                           required>
-
-                    <input type="email"
-                           placeholder="Correo electrónico"
-                           required>
-
-                    <textarea
-                        placeholder="Escribe tu mensaje..."
-                        required>
-                    </textarea>
-
-                    <button type="submit">
-                        Enviar mensaje
-                    </button>
-
-                </form>
+                <form action="guardar_contacto.php" method="POST"><input type="text" name="nombre" placeholder="Tu nombre" required><input type="email" name="correo" placeholder="Correo electrónico" required><textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea><button type="submit">Enviar mensaje</button></form>
 
             </div>
 
@@ -249,22 +196,22 @@
             <div class="social-icons">
 
                 <a href="#">
-                    <img src="img/Facebook1.png"
+                    <img src="img/facebook.png"
                          alt="Facebook">
                 </a>
 
                 <a href="#">
-                    <img src="img/Instagram1.png"
+                    <img src="img/instagram.png"
                          alt="Instagram">
                 </a>
 
                 <a href="#">
-                    <img src="img/Tiktok1.png"
+                    <img src="img/tiktok.png"
                          alt="TikTok">
                 </a>
 
                 <a href="#">
-                    <img src="img/Whatsapp1.png"
+                    <img src="img/whatsapp.png"
                          alt="WhatsApp">
                 </a>
 

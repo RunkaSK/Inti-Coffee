@@ -1,0 +1,9 @@
+# SQLite local database files
+database/*.db
+database/*.db-shm
+database/*.db-wal
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/

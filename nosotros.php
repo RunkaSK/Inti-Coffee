@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/conexion.php'; ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -9,6 +10,7 @@
 </head>
 
 <body>
+    <?php mostrarMensaje(); ?>
 
     <!-- HEADER -->
     <header>
@@ -18,10 +20,10 @@
         </div>
 
         <nav>
-            <a href="index.html" class="nav-link">Inicio</a>
-            <a href="menu.html" class="nav-link">Menú</a>
-            <a href="nosotros.html" class="nav-link active">Nosotros</a>
-            <a href="contacto.html" class="nav-link">Contacto</a>
+            <a href="index.php" class="nav-link">Inicio</a>
+            <a href="menu.php" class="nav-link">Menú</a>
+            <a href="nosotros.php" class="nav-link active">Nosotros</a>
+            <a href="contacto.php" class="nav-link">Contacto</a>
 
             <div class="user-profile" onclick="toggleAuthModal()">
                 <img src="img/incognito.png" alt="Perfil">
@@ -54,15 +56,7 @@
 
                 <h2>Bienvenido</h2>
 
-                <form>
-                    <input type="email" placeholder="Correo electrónico" required>
-
-                    <input type="password" placeholder="Contraseña" required>
-
-                    <button type="submit">
-                        Iniciar Sesión
-                    </button>
-                </form>
+                <form action="login.php" method="POST"><input type="email" name="correo" placeholder="Correo electrónico" required><input type="password" name="password" placeholder="Contraseña" required><button type="submit">Iniciar Sesión</button></form>
 
                 <p>
                     <a href="#">
@@ -77,21 +71,7 @@
 
                 <h2>Crear Cuenta</h2>
 
-                <form>
-
-                    <input type="text" placeholder="Nombre completo" required>
-
-                    <input type="email" placeholder="Correo electrónico" required>
-
-                    <input type="password" placeholder="Contraseña" required>
-
-                    <input type="password" placeholder="Confirmar contraseña" required>
-
-                    <button type="submit">
-                        Registrarse
-                    </button>
-
-                </form>
+                <form action="registrar.php" method="POST"><input type="text" name="nombre_completo" placeholder="Nombre completo" required><input type="email" name="correo" placeholder="Correo electrónico" required><input type="password" name="password" placeholder="Contraseña" required><input type="password" name="confirmar_password" placeholder="Confirmar contraseña" required><button type="submit">Registrarse</button></form>
 
             </div>
 

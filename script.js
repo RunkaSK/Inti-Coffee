@@ -1,19 +1,19 @@
 function setActiveNav() {
     const navLinks = document.querySelectorAll('.nav-link');
-    const path = window.location.pathname.split('/').pop() || 'index.html';
+    const path = window.location.pathname.split('/').pop() || 'index.php';
 
     navLinks.forEach(link => {
         link.classList.remove('active');
         const href = link.getAttribute('href');
 
-        if (href === path || (href === 'index.html' && path === '')) {
+        if (href === path || (href === 'index.php' && path === '')) {
             link.classList.add('active');
         }
     });
 }
 
 function irAlMenu() {
-    window.location.href = 'menu.html';
+    window.location.href = 'menu.php';
 }
 
 function filtrar(categoria) {

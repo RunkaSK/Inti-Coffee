@@ -1000,3 +1000,25 @@ section#contacto {
     }
 
 }
+.flash-message {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    z-index: 2000;
+    max-width: min(90%, 520px);
+    padding: 14px 18px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    transform: translateX(-50%);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.flash-success {
+    background: #2f7d46;
+}
+
+.flash-error {
+    background: #b33a3a;
+}

@@ -47,6 +47,14 @@ http://localhost:8000/index.php
 
 ## GitHub Pages
 
-GitHub Pages no ejecuta PHP ni SQLite. Puede mostrar paginas estaticas, pero este proyecto necesita servidor PHP para que funcionen login, registro y contacto.
+GitHub Pages publica la version estatica del sitio usando los archivos `.html`.
 
-Para publicar el codigo en GitHub esta bien. Para publicarlo funcionando con PHP necesitas un hosting con PHP, por ejemplo XAMPP local, Laragon local, InfinityFree, 000webhost o un VPS.
+La version publicada en GitHub Pages sirve para ver la pagina, navegar por secciones y mostrar el diseno. GitHub Pages no ejecuta PHP ni SQLite, asi que login, registro y contacto con base de datos solo funcionan localmente o en un hosting con PHP.
+
+URL esperada de GitHub Pages:
+
+```text
+https://runkask.github.io/Inti-Coffee/
+```
+
+Para publicar el proyecto completo funcionando con PHP necesitas un hosting con PHP, por ejemplo XAMPP local, Laragon local, InfinityFree, AwardSpace o un VPS.

@@ -1,19 +1,30 @@
 function setActiveNav() {
     const navLinks = document.querySelectorAll('.nav-link');
-    const path = window.location.pathname.split('/').pop() || 'index.php';
+    const path = window.location.pathname.split('/').pop() || getPageName('index');
 
     navLinks.forEach(link => {
         link.classList.remove('active');
         const href = link.getAttribute('href');
 
-        if (href === path || (href === 'index.php' && path === '')) {
+        if (href === path || (href === getPageName('index') && path === '')) {
             link.classList.add('active');
         }
     });
 }
 
+function getPageName(page) {
+    const current = window.location.pathname.split('/').pop();
+    const extension = current && current.endsWith('.php') ? '.php' : '.html';
+    return `${page}${extension}`;
+}
+
 function irAlMenu() {
-    window.location.href = 'menu.php';
+    window.location.href = getPageName('menu');
+}
+
+function mostrarAvisoGitHubPages() {
+    alert('Esta version publicada en GitHub Pages es solo visual. Para usar login, registro y contacto con SQLite, ejecuta el proyecto con PHP localmente.');
+    return false;
 }
 
 function filtrar(categoria) {

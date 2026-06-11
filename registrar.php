@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -20,6 +20,11 @@ if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
     volverAtras();
 }
 
+if (strlen($password) < 6) {
+    guardarMensajeFlash('error', 'La contrasena debe tener al menos 6 caracteres.');
+    volverAtras();
+}
+
 if ($password !== $confirmarPassword) {
     guardarMensajeFlash('error', 'Las contrasenas no coinciden.');
     volverAtras();
@@ -27,26 +32,26 @@ if ($password !== $confirmarPassword) {
 
 try {
     $pdo = obtenerConexion();
-    $stmt = $pdo->prepare('INSERT INTO usuarios (nombre_completo, correo, password_hash) VALUES (:nombre, :correo, :password_hash)');
+    $stmt = $pdo->prepare('INSERT INTO usuarios (nombre_completo, correo, password_hash, rol) VALUES (:nombre, :correo, :password_hash, :rol)');
     $stmt->execute([
         ':nombre' => $nombre,
         ':correo' => $correo,
         ':password_hash' => password_hash($password, PASSWORD_DEFAULT),
+        ':rol' => 'cliente',
     ]);
 
     $_SESSION['usuario'] = [
         'id' => (int) $pdo->lastInsertId(),
         'nombre' => $nombre,
         'correo' => $correo,
+        'rol' => 'cliente',
     ];
 
     guardarMensajeFlash('success', 'Cuenta creada correctamente.');
+    header('Location: menu.php');
+    exit;
 } catch (PDOException $e) {
-    if ($e->getCode() === '23000') {
-        guardarMensajeFlash('error', 'Ese correo ya esta registrado.');
-    } else {
-        guardarMensajeFlash('error', 'No se pudo registrar el usuario.');
-    }
+    guardarMensajeFlash('error', $e->getCode() === '23000' ? 'Ese correo ya esta registrado.' : 'No se pudo registrar el usuario.');
 }
 
 volverAtras();

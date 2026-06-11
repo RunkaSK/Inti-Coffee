@@ -14,7 +14,7 @@ function setActiveNav() {
 
 function getPageName(page) {
     const current = window.location.pathname.split('/').pop();
-    const extension = current && current.endsWith('.php') ? '.php' : '.html';
+    const extension = '.php';
     return `${page}${extension}`;
 }
 

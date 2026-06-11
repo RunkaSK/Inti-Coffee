@@ -1,153 +1,58 @@
-<?php require_once __DIR__ . '/conexion.php'; ?>
+<?php
+require_once __DIR__ . '/conexion.php';
+$productos = obtenerProductosActivos();
+$categorias = array_values(array_unique(array_map(fn($producto) => $producto['categoria'], $productos)));
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú - Inticoffee</title>
+    <title>Menu - Inticoffee</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <?php mostrarMensaje(); ?>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo Inticoffee">
-        </div>
-        <nav>
-            <a href="index.php" class="nav-link">Inicio</a>
-            <a href="menu.php" class="nav-link active">Menú</a>
-            <a href="nosotros.php" class="nav-link">Nosotros</a>
-            <a href="contacto.php" class="nav-link">Contacto</a>
-            <div class="user-profile" onclick="toggleAuthModal()">
-                <img src="img/incognito.png" alt="Perfil">
-            </div>
-        </nav>
-    </header>
+    <?php renderHeader('menu'); ?>
+    <?php renderAuthModal(); ?>
 
-    <!-- Modal de Autenticación -->
-    <div id="authModal" class="auth-modal">
-        <div class="auth-container">
-            <button class="close-btn" onclick="toggleAuthModal()">×</button>
-            <div class="auth-tabs">
-                <button class="tab-btn active" onclick="switchTab('login')">Iniciar Sesión</button>
-                <button class="tab-btn" onclick="switchTab('register')">Registrarse</button>
-            </div>
+    <main class="shop-page">
+        <section class="shop-hero">
+            <span>Vista cliente</span>
+            <h1>Productos disponibles</h1>
+            <p>Elige un producto, revisa su detalle y agrega la cantidad segun el stock disponible.</p>
+        </section>
 
-            <!-- Tab Login -->
-            <div id="login" class="tab-content active">
-                <h2>Bienvenido</h2>
-                <form action="login.php" method="POST"><input type="email" name="correo" placeholder="Correo electrónico" required><input type="password" name="password" placeholder="Contraseña" required><button type="submit">Iniciar Sesión</button></form>
-                <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-            </div>
+        <section class="category-filter">
+            <button type="button" onclick="filtrar('todos')">Todos</button>
+            <?php foreach ($categorias as $categoria): ?>
+                <button type="button" onclick="filtrar('<?php echo e($categoria); ?>')"><?php echo e($categoria); ?></button>
+            <?php endforeach; ?>
+        </section>
 
-            <!-- Tab Register -->
-            <div id="register" class="tab-content">
-                <h2>Crear Cuenta</h2>
-                <form action="registrar.php" method="POST"><input type="text" name="nombre_completo" placeholder="Nombre completo" required><input type="email" name="correo" placeholder="Correo electrónico" required><input type="password" name="password" placeholder="Contraseña" required><input type="password" name="confirmar_password" placeholder="Confirmar contraseña" required><button type="submit">Registrarse</button></form>
-            </div>
-        </div>
-    </div>
-
-    <section class="menu" id="menu">
-        <h2>Nuestro menú de hoy</h2>
-
-        <div class="carousel-wrapper">
-
-    <button class="carousel-btn left" onclick="scrollLeft()">
-        ❮
-    </button>
-
-    <div class="carousel" id="carousel">
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&h=200&fit=crop" alt="Espresso">
-            <h3>Espresso</h3>
-            <p>Café intenso y aromático</p>
-            <span class="price">S/ 8.00</span>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300&h=200&fit=crop" alt="Cappuccino">
-            <h3>Cappuccino</h3>
-            <p>Espuma cremosa con cacao</p>
-            <span class="price">S/ 10.00</span>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=300&h=200&fit=crop" alt="Frappuccino">
-            <h3>Frappuccino</h3>
-            <p>Bebida fría con crema</p>
-            <span class="price">S/ 12.00</span>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1508736793122-f516e3ba5569?w=300&h=200&fit=crop" alt="Cheesecake">
-            <h3>Cheesecake</h3>
-            <p>Postre cremoso clásico</p>
-            <span class="price">S/ 9.00</span>
-        </div>
-
-        <!-- DUPLICADAS PARA LOOP -->
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&h=200&fit=crop" alt="Espresso">
-            <h3>Espresso</h3>
-            <p>Café intenso y aromático</p>
-            <span class="price">S/ 8.00</span>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300&h=200&fit=crop" alt="Cappuccino">
-            <h3>Cappuccino</h3>
-            <p>Espuma cremosa con cacao</p>
-            <span class="price">S/ 10.00</span>
-        </div>
-
-    </div>
-
-    <button class="carousel-btn right" onclick="scrollRight()">
-        ❯
-    </button>
-
-</div>
-    </section>
-
-    <section class="categories">
-
-    <h2>Explorar Categorías</h2>
-
-    <div class="category-grid">
-
-        <div class="category-card" >
-            <img src="img/cafes.png" alt="Cafés">
-            <div class="overlay">
-                <h3>Cafés</h3>
-            </div>
-        </div>
-
-        <div class="category-card">
-            <img src="img/acompañamiento.png" alt="Acompañamiento">
-            <div class="overlay">
-                <h3>Acompañamiento</h3>
-            </div>
-        </div>
-
-        <div class="category-card">
-            <img src="img/productos.png" alt="Productos">
-            <div class="overlay">
-                <h3>Productos</h3>
-            </div>
-        </div>
-
-        <div class="category-card">
-            <img src="img/congelados.png" alt="Congelados">
-            <div class="overlay">
-                <h3>Congelados</h3>
-            </div>
-        </div>
-
-    </div>
-
-</section>
+        <section class="product-grid">
+            <?php foreach ($productos as $producto): ?>
+                <article class="card product-card" data-category="<?php echo e($producto['categoria']); ?>">
+                    <img src="<?php echo e($producto['imagen'] ?: 'img/productos.png'); ?>" alt="<?php echo e($producto['nombre']); ?>">
+                    <h3><?php echo e($producto['nombre']); ?></h3>
+                    <p><?php echo e($producto['descripcion']); ?></p>
+                    <div class="product-meta">
+                        <span class="price">S/ <?php echo number_format((float) $producto['precio'], 2); ?></span>
+                        <span class="stock <?php echo (int) $producto['stock'] <= 0 ? 'empty' : ''; ?>">Stock: <?php echo (int) $producto['stock']; ?></span>
+                    </div>
+                    <div class="product-actions">
+                        <a class="btn-secondary" href="producto.php?id=<?php echo (int) $producto['id']; ?>">Ver info</a>
+                        <form action="carrito_accion.php" method="POST">
+                            <input type="hidden" name="accion" value="agregar">
+                            <input type="hidden" name="producto_id" value="<?php echo (int) $producto['id']; ?>">
+                            <input type="number" name="cantidad" min="1" max="<?php echo max(1, (int) $producto['stock']); ?>" value="1" <?php echo (int) $producto['stock'] <= 0 ? 'disabled' : ''; ?>>
+                            <button type="submit" <?php echo (int) $producto['stock'] <= 0 ? 'disabled' : ''; ?>>Agregar</button>
+                        </form>
+                    </div>
+                </article>
+            <?php endforeach; ?>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>

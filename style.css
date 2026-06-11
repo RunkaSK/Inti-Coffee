@@ -1022,3 +1022,352 @@ section#contacto {
 .flash-error {
     background: #b33a3a;
 }
+/* =========================
+   TIENDA / CRUD / CARRITO
+========================= */
+
+.user-name {
+    max-width: 160px;
+    color: #1e3932;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.logout-link {
+    font-size: 22px;
+}
+
+.login-hint {
+    margin-top: 14px;
+    color: #666;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+.shop-page,
+.detail-page,
+.cart-page,
+.business-page {
+    padding: 56px 8%;
+}
+
+.shop-hero {
+    margin-bottom: 28px;
+}
+
+.shop-hero.compact {
+    margin-bottom: 22px;
+}
+
+.shop-hero span,
+.detail-category {
+    color: #8b5e3c;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.shop-hero h1,
+.product-detail h1,
+.business-page h1 {
+    margin: 8px 0 10px;
+    color: #1e3932;
+    font-size: 46px;
+}
+
+.shop-hero p,
+.product-detail p,
+.empty-state p {
+    color: #555;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.category-filter button,
+.product-actions button,
+.detail-form button,
+.cart-summary button,
+.cart-controls button,
+.business-form button,
+.btn-secondary,
+.danger-btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    background: #1e3932;
+    color: #fff;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #cba258;
+}
+
+.danger-btn {
+    background: #a33b31;
+}
+
+button:disabled,
+input:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.product-card {
+    min-width: 0;
+    border-radius: 8px;
+}
+
+.product-card h3,
+.product-card p {
+    font-family: Arial, sans-serif;
+}
+
+.product-card p {
+    min-height: 48px;
+}
+
+.product-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 15px;
+}
+
+.stock {
+    color: #1e3932;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.stock.empty {
+    color: #a33b31;
+}
+
+.product-actions {
+    display: grid;
+    gap: 10px;
+    padding: 0 15px 18px;
+}
+
+.product-actions form,
+.detail-form,
+.cart-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.product-actions input,
+.detail-form input,
+.cart-controls input,
+.business-form input,
+.business-form select,
+.business-form textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.product-actions input,
+.cart-controls input {
+    max-width: 86px;
+}
+
+.product-detail {
+    display: grid;
+    grid-template-columns: minmax(260px, 420px) 1fr;
+    gap: 34px;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.product-detail img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-detail strong {
+    display: block;
+    margin: 18px 0 8px;
+    color: #1e3932;
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+}
+
+.detail-stock {
+    display: block;
+    margin-bottom: 18px;
+    color: #555;
+    font-family: Arial, sans-serif;
+}
+
+.detail-form {
+    align-items: end;
+    margin-bottom: 14px;
+}
+
+.detail-form label,
+.business-form label {
+    color: #1e3932;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+}
+
+.cart-list {
+    display: grid;
+    gap: 14px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 88px 1fr auto auto auto;
+    gap: 16px;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    padding: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.cart-item img {
+    width: 88px;
+    height: 72px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.cart-item h3,
+.cart-item p,
+.cart-item strong,
+.cart-summary h2,
+.empty-state h2,
+.business-form h2,
+.business-table-wrap h2,
+.business-table {
+    font-family: Arial, sans-serif;
+}
+
+.cart-summary,
+.empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 22px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.cart-summary form {
+    display: inline-flex;
+}
+
+.business-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 360px) 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.business-form,
+.business-table-wrap {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.business-form {
+    display: grid;
+    gap: 10px;
+}
+
+.check-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.check-row input {
+    width: auto;
+}
+
+.business-table-wrap {
+    overflow-x: auto;
+}
+
+.business-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.business-table th,
+.business-table td {
+    border-bottom: 1px solid #eee;
+    padding: 12px 10px;
+    text-align: left;
+}
+
+.table-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .product-detail,
+    .business-layout,
+    .cart-item {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-summary,
+    .empty-state {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .table-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

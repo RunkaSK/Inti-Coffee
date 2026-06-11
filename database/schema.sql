@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     nombre_completo TEXT NOT NULL,
     correo TEXT NOT NULL UNIQUE,
     password_hash TEXT NOT NULL,
+    rol TEXT NOT NULL DEFAULT 'cliente',
     creado_en TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -38,6 +39,7 @@ CREATE TABLE IF NOT EXISTS productos (
     descripcion TEXT,
     precio REAL NOT NULL,
     imagen TEXT,
+    stock INTEGER NOT NULL DEFAULT 0,
     activo INTEGER NOT NULL DEFAULT 1,
     creado_en TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

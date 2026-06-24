@@ -23,7 +23,7 @@ function irAlMenu() {
 }
 
 function mostrarAvisoGitHubPages() {
-    alert('Esta version publicada en GitHub Pages es solo visual. Para usar login, registro y contacto con SQLite, ejecuta el proyecto con PHP localmente.');
+    alert('Esta version publicada en GitHub Pages es solo DEMO. Para usar login, registro y contacto con SQLite, ejecuta el proyecto con PHP localmente.');
     return false;
 }
 

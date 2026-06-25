@@ -1,6 +1,6 @@
 # Inti-Coffee
 
-Prroyecto PHP con base de datos SQLite local.
+Proyecto PHP con base de datos SQLite local.
 
 ## Como ejecutar
 
